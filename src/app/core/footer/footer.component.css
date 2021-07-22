@@ -1,0 +1,49 @@
+footer {
+    background-color: #666;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+p {
+    font-size: 1.2em;
+    margin: .2em;
+}
+
+.socials {
+    margin: .3em 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.socials li {
+    margin: 0 0.2em;
+}
+
+.socials a {
+    text-decoration: none;
+    color: white;
+}
+
+.socials a i {
+    font-size: 1.3em;
+}
+
+.socials a i:hover {
+    color: #000
+}
+
+
+

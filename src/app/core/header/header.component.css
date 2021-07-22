@@ -1,0 +1,37 @@
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #666;
+    color: white;
+}
+
+.home-btn {
+    font-size: 2em;
+    margin: .2em;
+    margin-left: .5em;
+    cursor: pointer;
+}
+
+.nav-links ul{
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    display: block;
+    cursor: pointer;
+}
+
+.nav-links li:hover {
+    background-color: #555;
+}
