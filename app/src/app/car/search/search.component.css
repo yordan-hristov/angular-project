@@ -1,0 +1,52 @@
+.login-container {
+    width: 500px;
+    margin: auto;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.549);
+    padding: 70px 20px;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px;
+    font-size: 50px;
+    color: #555;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    color: #555;
+}
+
+.input {
+    width: 80%;
+    margin: auto;
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+}
+
+.input label {
+    font-size: 1.3em;
+    margin: .5em 0;
+}
+
+.input select {
+    padding: 0.5em;
+}
+
+.input input {
+    padding: 0.5em;
+}
+
+#submit-btn{
+    width: 60%;
+    border-radius: 15px;
+    background-color: #555;
+    color: white;
+    font-size: 20px;
+    margin: auto;
+}
