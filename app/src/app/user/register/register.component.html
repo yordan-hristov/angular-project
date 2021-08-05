@@ -1,10 +1,51 @@
 <div class="login-container">
     <h1>Register</h1>
-	<form>
-        <input type="text" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="rePassword" placeholder="Repeat Password">
+	<form [formGroup]="form" (ngSubmit)="register()">
+        <label for="username"></label>
+        <input type="text" name="username" placeholder="Username" formControlName="username" [ngStyle]="setInputBorderColor('username')">
+        <ng-container *ngIf="form.get('username')?.touched">
+            <p *ngIf="form.get('username')?.errors?.required">
+                Username is required!
+            </p>
+            <p *ngIf="form.get('username')?.errors?.minlength">
+                Username must be at least 5 characters!
+            </p>
+        </ng-container>
+
+        <label for="email"></label>
+        <input type="email" name="email" placeholder="Email" formControlName="email" [ngStyle]="setInputBorderColor('email')">
+        <ng-container *ngIf="form.get('email')?.touched">
+            <p *ngIf="form.get('email')?.errors?.required">
+                Email is required!
+            </p>
+            <p *ngIf="form.get('email')?.errors?.email">
+                Email is not valid!
+            </p>
+        </ng-container>
+
+        <label for="password"></label>
+        <input type="password" name="password" placeholder="Password" formControlName="password" [ngStyle]="setInputBorderColor('password')">
+        <ng-container *ngIf="form.get('password')?.touched">
+            <p *ngIf="form.get('password')?.errors?.required">
+                Password is required!
+            </p>
+            <p *ngIf="form.get('password')?.errors?.minlength">
+                Password must be at least 5 characters!
+            </p>
+        </ng-container>
+
+        <label for="rePassword"></label>
+        <input type="password" name="rePassword" placeholder="Repeat Password" formControlName="rePassword" [ngStyle]="setInputBorderColor('rePassword')">
+        <ng-container *ngIf="form.get('rePassword')?.touched">
+            <p *ngIf="form.get('rePassword')?.errors?.required">
+                Repeat password is required!
+            </p>
+            <p *ngIf="form.hasError('notMatching')">
+                Passwords are not matching!
+            </p>
+        </ng-container>
+
         <input type="submit" value="Submit">
     </form>
-    <p>You already have an account? <a routerLink="/login">Login</a></p>
+    <p class="login-redirect">You already have an account? <a routerLink="/login">Login</a></p>
 </div>

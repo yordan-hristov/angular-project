@@ -1,0 +1,15 @@
+<div class="cars" *ngIf="cars">
+    <div class="car" *ngFor="let car of cars">
+        <ul>
+            <li>{{car.model}}</li>
+            <li>{{car.year}}</li>
+            <li>{{car.transmission}}</li>
+            <li>{{car.doors}}</li>
+            <li>{{car.seats}}</li>
+            <li>{{car.fuel}}</li>
+            <li>{{car.price}}</li>
+        </ul>
+    </div>
+</div>
+
+<div *ngIf="!cars">Loading...</div>

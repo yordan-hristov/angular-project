@@ -2,8 +2,18 @@
     <div class="home-btn" routerLink="/">Rent-a-Car</div>
     <div class="nav-links">
         <ul>
-            <li><a routerLink="/login">Login</a></li>
-            <li><a routerLink="/register">Register</a></li>
+            <div class="shared-links">
+                <li><a routerLink="/cars">Cars</a></li>
+                <li><a>About</a></li>
+            </div>
+            <div class="guest-links" *ngIf="!isLogged()">
+                <li><a routerLink="/login">Login</a></li>
+                <li><a routerLink="/register">Register</a></li>
+            </div>
+            <div class="user-links" *ngIf="isLogged()">
+                <li><a>Profile</a></li>
+                <li><a (click)="logout()">Logout</a></li>
+            </div>
         </ul>
     </div>
 </nav>

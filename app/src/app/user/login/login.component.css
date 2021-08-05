@@ -29,6 +29,10 @@ form input {
     border-radius: 5px;
 }
 
+form input:focus {
+    border: none;
+}
+
 form input[type="submit"]{
     width: 60%;
     border-radius: 15px;
@@ -37,13 +41,29 @@ form input[type="submit"]{
     font-size: 20px;
 }
 
-p {
+form p {
+    text-align: center;
+    font-size: 1em;
+    color: red;
+    padding: 0;
+    margin: 0;
+}
+
+.register-redirect {
     margin-top: 40px;
     text-align: center;
     font-size: 20px;
 }
 
-p a {
+.register-redirect a {
     text-decoration: none;
     color: #555;
+}
+
+.error {
+    text-align: center;
+    font-size: 1.5em;
+    color: red;
+    padding: 0;
+    margin: 1em 0;
 }

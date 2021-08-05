@@ -15,23 +15,28 @@ nav {
 }
 
 .nav-links ul{
-    padding: 0;
+    display: flex;
     margin: 0;
+    padding: 0;
+}
+
+.nav-links ul div {
     display: flex;
 }
 
-.nav-links li {
+.nav-links ul div li {
     list-style: none;
 }
 
-.nav-links li a {
+.nav-links ul div li a{
     text-decoration: none;
     color: white;
-    padding: 1rem;
+    padding: 1em;
     display: block;
     cursor: pointer;
 }
 
-.nav-links li:hover {
+.nav-links ul div li:hover {
     background-color: #555;
 }
+

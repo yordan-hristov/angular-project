@@ -1,8 +1,9 @@
+const { carsController } = require('../controllers');
+
 const router = require('express').Router();
 
-router.get('/', (req,res) => {
-    res.send('cars');
-    res.end();
-})
+router.get('/', carsController.getCars)
+
+router.post('/', carsController.createCar)
 
 module.exports = router;

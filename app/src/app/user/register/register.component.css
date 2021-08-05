@@ -1,6 +1,6 @@
 .login-container {
     width: 500px;
-    height: 550px;
+    min-height: 70%;
     margin: auto;
     margin-top: 150px;
     margin-bottom: 150px;
@@ -24,9 +24,13 @@ form {
 form input {
     width: 60%;
     margin: auto;
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 10px 0 10px 0;
     border-radius: 5px;
+}
+
+form input:focus {
+    border: 0;
 }
 
 form input[type="submit"]{
@@ -35,15 +39,24 @@ form input[type="submit"]{
     background-color: #555;
     color: white;
     font-size: 20px;
+    cursor: pointer;
 }
 
-p {
+form p {
+    text-align: center;
+    font-size: 1em;
+    color: red;
+    padding: 0;
+    margin: 0;
+}
+
+.login-redirect {
     margin-top: 40px;
     text-align: center;
     font-size: 20px;
 }
 
-p a {
+.login-redirect a {
     text-decoration: none;
     color: #555;
 }
