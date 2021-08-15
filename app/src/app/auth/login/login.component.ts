@@ -1,7 +1,8 @@
 import { Component} from '@angular/core';
-import { Form, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from '../user.service';
+import { setInputBorderColor } from '../../shared/utils/inputBorderColor'
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent{
   
 
   constructor(
-    private userService: UserService,
+    private authService: AuthService,
     private router: Router,
     private fb: FormBuilder
   ) {
@@ -28,7 +29,7 @@ export class LoginComponent{
     if(this.form.invalid){ return; }
 
     const {email, password } = this.form.value;
-    this.userService.login({email,password}).subscribe({
+    this.authService.login({email,password}).subscribe({
       next: () => this.router.navigate(['/']),
       error: (err) => {
         this.errorMessage = err.error.text;
@@ -38,7 +39,7 @@ export class LoginComponent{
   }
 
   setInputBorderColor(name: string): object | null {
-    return this.userService.setInputBorderColor(this.form,name);
+    return setInputBorderColor(this.form,name);
   }
 
 }

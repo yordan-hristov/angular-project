@@ -50,3 +50,16 @@ form {
     font-size: 20px;
     margin: auto;
 }
+
+form p {
+    text-align: center;
+    font-size: 1em;
+    color: red;
+    padding: 0;
+    margin: 0;
+}
+
+submit, input:focus {
+    border: none;
+}
+

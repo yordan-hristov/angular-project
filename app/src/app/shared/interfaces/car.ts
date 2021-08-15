@@ -1,4 +1,9 @@
+import { IUser } from "./user";
+
 export interface ICar {
+    location: string,
+    _id: string,
+    brand: string,
     model: string,
     year: number,
     transmission: string,
@@ -6,5 +11,8 @@ export interface ICar {
     seats: number,
     fuel: string,
     price: number,
-    imageUrl: string
+    imageUrl: string,
+    hp: number,
+    rentedBy: string[],
+    savedBy: string[]
 }

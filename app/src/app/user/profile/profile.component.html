@@ -1,1 +1,20 @@
-<p>profile works!</p>
+<div class="container">
+    <div class="profile-container">
+        <div class="user-info">
+            <div class="image">
+            <img src="https://res.cloudinary.com/dtphwvxag/image/upload/v1628877051/ng-project-imgs/user.png" alt="user">
+            </div>
+            <div class="options">
+                <a routerLink="details">Details</a>
+                <a routerLink="change-password">Change password</a>
+                <a routerLink="saved">Saved cars</a>
+                <a routerLink="rented">Rented cars</a>
+                <a routerLink="add-car" *ngIf="isAdmin">Add new car</a>
+            </div>
+        </div>
+
+        <div class="option" *ngIf="user">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
-import { ContentService } from 'src/app/content.service';
 import { ICar } from 'src/app/shared/interfaces/car';
+import { CarService } from '../car.service';
 
 @Component({
   selector: 'app-car-list',
@@ -8,18 +8,12 @@ import { ICar } from 'src/app/shared/interfaces/car';
   styleUrls: ['./car-list.component.css']
 })
 export class CarListComponent{
-  cars: ICar[] | undefined;
+  cars: ICar[] | null;
   
-
   constructor(
-    private contentService: ContentService
+    private carService: CarService
   ) {
-    this.getCars();
-   }
-
-  getCars(): void {
-    this.cars = undefined;
-    this.contentService.loadCars().subscribe(cars => this.cars = cars);
+    this.cars = this.carService.cars;
   }
 
 }

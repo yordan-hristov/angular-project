@@ -1,0 +1,98 @@
+.container {
+    width: 100%;
+    min-height: 100%;
+    background-color: rgb(34, 34, 34);
+    padding: 5em 0;
+}
+
+.cars {
+    width: 70%;
+    height: 100%;
+    margin: auto;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 12px 12px 12px rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+}
+
+.car {
+    width: 95%;
+    margin: 1.3em auto;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+}
+
+.car-image {
+    width: 70%;
+    height: 100%;
+}
+
+.car-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.car-info {
+    width: 30%;
+    height: 100%;
+    margin-left: 2em;
+    display: flex;
+    flex-direction: column;
+}
+
+.car-info h2 {
+    text-align: center;
+    margin: 1.2em 0;
+}
+
+.car-info span {
+    margin-right: 1em;
+    font-size: 1.2em;
+}
+
+.car-info p {
+    margin: .6em 0;
+    font-size: 1.1em;
+}
+
+button {
+    margin: 1em 0;
+    padding: .5em .3em;
+    align-self: center;
+    width: 6em;
+    background-color: rgb(34, 34, 34);
+    color: white;
+    border: none;
+    border-radius: .5em;
+    cursor: pointer;
+}
+
+button:hover {
+    box-shadow: 3px 3px 3px black;
+}
+
+.no-cars {
+    margin: auto;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.no-cars p {
+    font-size: 4em;
+    color: white;
+    text-align: center;
+}
+
+.no-cars a {
+    font-size: 2em;
+    color: white;
+}
+
+
+
+

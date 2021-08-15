@@ -1,24 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/user/user.service';
+import { AuthService } from 'src/app/auth/auth.service';
+import { IUser } from 'src/app/shared/interfaces/user';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent{
-  isLogged(): boolean {
-    return this.userService.isLogged();
+export class HeaderComponent {
+  get username(): string | null {
+    if (!localStorage.getItem('username')) { return null; }
+
+    return localStorage.getItem('username');
   }
 
   constructor(
-    private userService: UserService,
+    private authService: AuthService,
     private router: Router
   ) { }
 
   logout(): void {
-    this.userService.logout().subscribe(() => {
+    this.authService.logout().subscribe(() => {
       this.router.navigate(['/']);
     })
   }

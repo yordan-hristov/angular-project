@@ -1,15 +1,27 @@
-<div class="cars" *ngIf="cars">
-    <div class="car" *ngFor="let car of cars">
-        <ul>
-            <li>{{car.model}}</li>
-            <li>{{car.year}}</li>
-            <li>{{car.transmission}}</li>
-            <li>{{car.doors}}</li>
-            <li>{{car.seats}}</li>
-            <li>{{car.fuel}}</li>
-            <li>{{car.price}}</li>
-        </ul>
-    </div>
-</div>
+<div class="container">
 
-<div *ngIf="!cars">Loading...</div>
+    <div class="cars" *ngIf="cars!.length > 0">
+        
+        <div class="car" *ngFor="let car of cars">
+            <div class="car-image">
+                <img [src]="car.imageUrl" [alt]="car.brand">
+            </div>
+            <div class="car-info">
+                <h2>{{car.brand + ' ' + car.model}}</h2>
+                <p><span>Year:</span>{{car.year}}</p>
+                <p><span>Seats:</span>{{car.seats}}</p>
+                <p><span>HP:</span>{{car.hp}}</p>
+                <p><span>Transmission:</span>{{car.transmission}}</p>
+                <p><span>Fuel:</span>{{car.fuel}}</p>
+                <button class="details" [routerLink]="['/cars', car._id]">Details</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="no-cars" *ngIf="cars!.length === 0">
+        <p>No matches</p>
+        <a routerLink="/cars">Return</a>
+    </div>
+    
+</div>

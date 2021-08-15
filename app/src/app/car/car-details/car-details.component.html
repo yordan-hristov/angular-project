@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="car" *ngIf="car">
+        <div class="car-image">
+            <img [src]="car.imageUrl" [alt]="car.brand">
+        </div>
+        <div class="car-details">
+            <h2>Info:</h2>
+
+            <div class="info">
+                <div class="left">
+                    <p><span>Location:</span>{{car.location}}</p>
+                    <p><span>Model:</span>{{car.brand + ' ' + car.model}}</p>
+                    <p><span>Year:</span>{{car.year}}</p>
+                    <p><span>Transmission:</span>{{car.transmission}}</p>
+                </div>
+                <div class="right">
+                    <p><span>Doors:</span>{{car.doors}}</p>
+                    <p><span>Seats:</span>{{car.seats}}</p>
+                    <p><span>Fuel:</span>{{car.fuel}}</p>
+                    <p><span>HP:</span>{{car.hp}}</p>
+                </div>
+            </div>
+
+            <div class="extras">
+                <h3>Extras:</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Ipsam eveniet nihil, iure architecto hic vel iusto debitis
+                    praesentium, ipsum veritatis nostrum reprehenderit consectetur
+                    est unde maxime facere nobis adipisci molestiae.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto magnam,
+                    tempora sunt temporibus iste quae omnis quia optio ad facilis, alias
+                    at ex qui voluptates, modi adipisci earum ullam error!
+                </p>
+            </div>
+
+            <div class="price">
+                <h1>Price: {{car.price}} BGN/day</h1>
+            </div>
+
+            <div class="user-view" *ngIf="userId">
+                <form [formGroup]="form" *ngIf="shouldShow('rent')" (ngSubmit)="onSubmit()">
+                    <div class="input">
+                        <label for="start-date">Pick up:</label>
+                        <input type="date" name="startDate" formControlName="startDate" [ngStyle]="setInputBorderColor(form,'startDate')">
+                    </div>
+
+                    <div class="input">
+                        <label for="return-date">Return:</label>
+                        <input type="date" name="returnDate" formControlName="returnDate" [ngStyle]="setInputBorderColor(form,'returnDate')"> 
+                    </div>
+
+                    <input type="submit" value="RENT NOW" class="submit">
+                </form>
+
+                
+                <button (click)="saveCar()" *ngIf="shouldShow('save')">SAVE</button>
+
+                <p class="status" *ngIf="!shouldShow('rent')"><span>✓</span> Rented</p>
+                <p class="status" *ngIf="!shouldShow('save')"><span>✓</span> Saved</p>
+            </div>
+
+            <p class="message" *ngIf="!userId"><a routerLink='/login'>Login</a> or <a routerLink='/register'>Register</a>to rent or save this car</p>
+        </div>
+    </div>
+    <div class="no-car" *ngIf="!car">
+        <p>This car does not exist!</p>
+    </div>
+
+</div>

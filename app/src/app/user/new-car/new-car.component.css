@@ -1,0 +1,63 @@
+:host {
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    margin: .3em 0 .3em 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: row;
+}
+
+input {
+    margin: 1em 2em;
+    padding: .3em;
+}
+
+input:focus {
+    border: none;
+}
+
+.input-select {
+    margin-bottom: 1em;
+}
+
+.input-select select {
+    padding: .5em 2em;
+    background-color: rgb(26,26,26);
+    color: white;
+    border-color: white;
+}
+
+.input-submit {
+    margin-top: 1em;
+    padding: .5em 2em;
+    background-color: rgb(26,26,26);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.message {
+    margin: 0;
+    padding: 0;
+    color: green;
+    text-align: center;
+}
+

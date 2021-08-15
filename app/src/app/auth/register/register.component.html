@@ -2,7 +2,7 @@
     <h1>Register</h1>
 	<form [formGroup]="form" (ngSubmit)="register()">
         <label for="username"></label>
-        <input type="text" name="username" placeholder="Username" formControlName="username" [ngStyle]="setInputBorderColor('username')">
+        <input type="text" name="username" placeholder="Username" formControlName="username" [ngStyle]="setInputBorderColor(form,'username')">
         <ng-container *ngIf="form.get('username')?.touched">
             <p *ngIf="form.get('username')?.errors?.required">
                 Username is required!
@@ -13,7 +13,7 @@
         </ng-container>
 
         <label for="email"></label>
-        <input type="email" name="email" placeholder="Email" formControlName="email" [ngStyle]="setInputBorderColor('email')">
+        <input type="email" name="email" placeholder="Email" formControlName="email" [ngStyle]="setInputBorderColor(form,'email')">
         <ng-container *ngIf="form.get('email')?.touched">
             <p *ngIf="form.get('email')?.errors?.required">
                 Email is required!
@@ -23,8 +23,22 @@
             </p>
         </ng-container>
 
+        <label for="number"></label>
+        <input type="tel" name="number" placeholder="Number" formControlName="number" [ngStyle]="setInputBorderColor(form,'number')">
+        <ng-container *ngIf="form.get('number')?.touched">
+            <p *ngIf="form.get('number')?.errors?.required">
+                Number is required!
+            </p>
+            <p *ngIf="form.get('number')?.errors?.minlength">
+                Number is invalid!
+            </p>
+            <p *ngIf="form.get('number')?.errors?.pattern">
+                Number is can contain only digits!
+            </p>
+        </ng-container>
+
         <label for="password"></label>
-        <input type="password" name="password" placeholder="Password" formControlName="password" [ngStyle]="setInputBorderColor('password')">
+        <input type="password" name="password" placeholder="Password" formControlName="password" [ngStyle]="setInputBorderColor(form,'password')">
         <ng-container *ngIf="form.get('password')?.touched">
             <p *ngIf="form.get('password')?.errors?.required">
                 Password is required!
@@ -35,17 +49,19 @@
         </ng-container>
 
         <label for="rePassword"></label>
-        <input type="password" name="rePassword" placeholder="Repeat Password" formControlName="rePassword" [ngStyle]="setInputBorderColor('rePassword')">
+        <input type="password" name="rePassword" placeholder="Repeat Password" formControlName="rePassword" [ngStyle]="setInputBorderColor(form,'rePassword')">
         <ng-container *ngIf="form.get('rePassword')?.touched">
             <p *ngIf="form.get('rePassword')?.errors?.required">
                 Repeat password is required!
             </p>
-            <p *ngIf="form.hasError('notMatching')">
+            <p *ngIf="form.get('rePassword')?.errors?.notMatching">
                 Passwords are not matching!
             </p>
         </ng-container>
 
         <input type="submit" value="Submit">
+
+        <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
     </form>
     <p class="login-redirect">You already have an account? <a routerLink="/login">Login</a></p>
 </div>

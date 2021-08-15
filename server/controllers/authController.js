@@ -3,17 +3,17 @@ const bcrypt = require('bcrypt');
 const jwt = require('../utils/jwt');
 
 async function register(req, res) {
-    const { username, email, password } = req.body;
+    const { username, email,number, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
 
     try {
         const pattern = new RegExp(`^${email}$`, 'i');
         const existing = await userModel.findOne({ email: { $regex: pattern } });
         if (existing) { throw new Error('Email is already taken') }
-        const user = await userModel.create({ username,email, hashedPassword });
+        const user = await userModel.create({ username,email,number, hashedPassword });
         const token = jwt.createToken({ username,email, id: user._id });
         res.cookie('auth-cookie', token, { httpOnly: true });
-        res.send({ username, email, id: user._id })
+        res.send({ username: user.username, email: user.email, id: user._id, role: user.role})
     } catch (err) {
         res.send(err.message);
     }
@@ -30,7 +30,7 @@ async function login(req, res) {
         if (!passwordMatch) { throw new Error('Invalid password!') };
         const token = jwt.createToken({ username: user.username, email, id: user._id });
         res.cookie('auth-cookie', token, { httpOnly: false });
-        res.send({ username: user.username, email, id: user._id });
+        res.send({ username: user.username, email: user.email, id: user._id, role: user.role });
     } catch (err) {
         res.send(err.message);
     }

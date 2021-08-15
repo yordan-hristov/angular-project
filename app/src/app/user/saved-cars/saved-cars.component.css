@@ -1,0 +1,71 @@
+:host {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    padding: 1em;
+}
+
+h1 {
+    text-align: center;
+    margin: 0 0 1em 0;
+}
+
+.cars {
+    width: 100%;
+    height: 80%;
+    overflow: auto;
+    scrollbar-width: thin;
+}
+
+.car {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.car img {
+    height: 100%;
+    width: 30%;
+}
+
+.info {
+    justify-content: center;
+    align-items: center;
+}
+
+.car h3 {
+    margin: 0 4em 0 2em;
+}
+
+.buttons {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.buttons button {
+    margin: 0 1em;
+    padding: .5em 1em;
+    width: 70px;
+    background-color: rgb(26,26,26);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.message p {
+    text-align: center;
+}
+

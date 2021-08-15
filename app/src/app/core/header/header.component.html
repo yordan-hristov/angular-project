@@ -4,14 +4,14 @@
         <ul>
             <div class="shared-links">
                 <li><a routerLink="/cars">Cars</a></li>
-                <li><a>About</a></li>
+                <li><a routerLink="/about">About</a></li>
             </div>
-            <div class="guest-links" *ngIf="!isLogged()">
+            <div class="guest-links" *ngIf="!username">
                 <li><a routerLink="/login">Login</a></li>
                 <li><a routerLink="/register">Register</a></li>
             </div>
-            <div class="user-links" *ngIf="isLogged()">
-                <li><a>Profile</a></li>
+            <div class="user-links" *ngIf="username">
+                <li><a routerLink="profile">{{username}}'s Profile</a></li>
                 <li><a (click)="logout()">Logout</a></li>
             </div>
         </ul>

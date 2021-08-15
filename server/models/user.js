@@ -9,6 +9,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    number: {
+        type: String,
+        required: true
+    },
     hashedPassword: {
         type: String,
         required: true
@@ -16,7 +20,17 @@ const userSchema = new mongoose.Schema({
     role: {
         type: String,
         default: 'user'
-    }
+    },
+    savedCars: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Car",
+        default: []
+    }],
+    rentedCars: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Car",
+        default: []
+    }]
 })
 
 module.exports = mongoose.model('User', userSchema);
